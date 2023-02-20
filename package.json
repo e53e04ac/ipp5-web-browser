@@ -1,0 +1,35 @@
+{
+  "name": "ipp5-web-browser",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "e53e04ac",
+  "homepage": "https://github.com/e53e04ac/ipp5-web-browser#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e53e04ac/ipp5-web-browser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/e53e04ac/ipp5-web-browser/issues"
+  },
+  "type": "module",
+  "types": "index.d.ts",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=18.14.0",
+    "npm": ">=9.3.1"
+  },
+  "dependencies": {
+    "event-emitter": "github:e53e04ac/event-emitter",
+    "hold": "github:e53e04ac/hold",
+    "playwright": "^1.30.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.19",
+    "file-entry": "github:e53e04ac/file-entry"
+  }
+}
