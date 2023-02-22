@@ -149,6 +149,9 @@ const constructor = ((options) => {
             });
             return { responseData };
         }),
+        snapshot: (async ({ }) => {
+            return undefined;
+        }),
         close: hold(async () => {
             const browserContext = await self.browserContext();
             await browserContext.close();

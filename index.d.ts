@@ -4,8 +4,16 @@
     MIT License
 */
 
+import { Browser as PlaywrightBrowser } from 'playwright';
 import { BrowserContext as PlaywrightBrowserContext } from 'playwright';
+import { BrowserType as PlaywrightBrowserType } from 'playwright';
+import { ElementHandle as PlaywrightElementHandle } from 'playwright';
+import { Frame as PlaywrightFrame } from 'playwright';
 import { Page as PlaywrightPage } from 'playwright';
+import { Request as PlaywrightRequest } from 'playwright';
+import { Response as PlaywrightResponse } from 'playwright';
+import { Video as PlaywrightVideo } from 'playwright';
+import { Worker as PlaywrightWorker } from 'playwright';
 
 import { FileEntry } from 'file-entry';
 import { EventEmitter } from 'event-emitter';
@@ -60,6 +68,11 @@ export declare namespace Ipp5WebBrowser {
             }): Promise<{
                 readonly responseData: HttpResponseData;
             }>;
+        };
+        readonly snapshot: {
+            (params: {
+
+            }): Promise<unknown>;
         };
         readonly close: Get<Promise<void>>;
     };
