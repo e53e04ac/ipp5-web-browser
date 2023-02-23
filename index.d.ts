@@ -22,6 +22,72 @@ import { ValueOrGet } from 'hold';
 
 export declare namespace Ipp5WebBrowser {
 
+    namespace Tracer {
+
+        type TransformOptions = {
+            readonly passthrough?: boolean;
+        };
+
+        type TransformOutput = {
+            readonly type: string;
+            readonly data: unknown;
+        };
+
+        type Transformer<T> = {
+            readonly test: {
+                (x: unknown): boolean;
+            };
+            readonly transform: {
+                (x: T, options?: TransformOptions): Promise<TransformOutput>;
+            };
+        };
+
+        type Self = {
+            readonly _inputs: Map<unknown, number>;
+            readonly _outputs: Map<number, {
+                readonly id: number;
+                readonly type: string;
+                readonly data: unknown;
+            }>;
+            readonly _transformers: [
+                Transformer<undefined>,
+                Transformer<boolean>,
+                Transformer<number>,
+                Transformer<bigint>,
+                Transformer<string>,
+                Transformer<null>,
+                Transformer<Error>,
+                Transformer<Buffer>,
+                Transformer<PlaywrightBrowser>,
+                Transformer<PlaywrightBrowserContext>,
+                Transformer<PlaywrightBrowserType>,
+                Transformer<PlaywrightElementHandle>,
+                Transformer<PlaywrightFrame>,
+                Transformer<PlaywrightPage>,
+                Transformer<PlaywrightRequest>,
+                Transformer<PlaywrightResponse>,
+                Transformer<PlaywrightVideo>,
+                Transformer<PlaywrightWorker>,
+                Transformer<Array<unknown>>,
+                Transformer<Record<string, unknown>>,
+                Transformer<unknown>,
+            ];
+            readonly _transformer: {
+                (x: unknown): Transformer<any>;
+            };
+            readonly _transform: {
+                (f: { (): unknown; }, options?: TransformOptions): Promise<unknown>;
+            };
+            readonly trace: {
+                (target: unknown): Promise<void>;
+            };
+            readonly result: {
+                (): Promise<unknown>;
+            };
+        };
+
+    }
+
     type HttpRequestData = {
         readonly method: string;
         readonly url: string;
@@ -56,6 +122,9 @@ export declare namespace Ipp5WebBrowser {
         readonly userDataDirectory: Get<FileEntry>;
         readonly downloadsDirectory: Get<FileEntry>;
         readonly tracesDirectory: Get<FileEntry>;
+        readonly Tracer: {
+            (): Tracer.Self;
+        };
     };
 
     type Self = EventEmitter<EventSpecs> & {
