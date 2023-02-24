@@ -55,16 +55,8 @@ graph RL;
   end;
   M["index.d.ts"]
   subgraph "playwright";
-    I_0_0(["Browser"]);
-    I_0_1(["BrowserContext"]);
-    I_0_2(["BrowserType"]);
-    I_0_3(["ElementHandle"]);
-    I_0_4(["Frame"]);
-    I_0_5(["Page"]);
-    I_0_6(["Request"]);
-    I_0_7(["Response"]);
-    I_0_8(["Video"]);
-    I_0_9(["Worker"]);
+    I_0_0(["BrowserContext"]);
+    I_0_1(["Page"]);
   end;
   subgraph "file-entry";
     I_1_0(["FileEntry"]);
@@ -78,6 +70,43 @@ graph RL;
   end;
   M ----> I_0_0;
   M ----> I_0_1;
+  M ----> I_1_0;
+  M ----> I_2_0;
+  M ----> I_3_0;
+  M ----> I_3_1;
+  E_0 ----> M;
+  E_1 ----> M;
+  E_2 ----> M;
+~~~~~
+
+~~~~~ mermaid
+graph RL;
+  subgraph " ";
+    E_0(["namespace Tracer"]);
+    E_1(["type Tracer"]);
+    E_2(["const Tracer"]);
+  end;
+  M["tracer.d.ts"]
+  subgraph "playwright";
+    I_0_0(["Browser"]);
+    I_0_1(["BrowserContext"]);
+    I_0_2(["BrowserType"]);
+    I_0_3(["ElementHandle"]);
+    I_0_4(["Frame"]);
+    I_0_5(["Page"]);
+    I_0_6(["Request"]);
+    I_0_7(["Response"]);
+    I_0_8(["Video"]);
+    I_0_9(["Worker"]);
+  end;
+  subgraph "event-emitter";
+    I_1_0(["EventEmitter"]);
+  end;
+  subgraph "hold";
+    I_2_0(["Get"]);
+  end;
+  M ----> I_0_0;
+  M ----> I_0_1;
   M ----> I_0_2;
   M ----> I_0_3;
   M ----> I_0_4;
@@ -88,8 +117,6 @@ graph RL;
   M ----> I_0_9;
   M ----> I_1_0;
   M ----> I_2_0;
-  M ----> I_3_0;
-  M ----> I_3_1;
   E_0 ----> M;
   E_1 ----> M;
   E_2 ----> M;
@@ -111,9 +138,26 @@ graph RL;
     I_2_0(["hold"]);
     I_2_1(["unwrap"]);
   end;
+  subgraph "tracer.mjs";
+    I_3_0(["Tracer"]);
+  end;
   M ----> I_0_0;
   M ----> I_1_0;
   M ----> I_2_0;
   M ----> I_2_1;
+  M ----> I_3_0;
+  E_0 ----> M;
+~~~~~
+
+~~~~~ mermaid
+graph RL;
+  subgraph " ";
+    E_0(["Tracer"]);
+  end;
+  M["tracer.mjs"]
+  subgraph "event-emitter";
+    I_0_0(["EventEmitter"]);
+  end;
+  M ----> I_0_0;
   E_0 ----> M;
 ~~~~~
