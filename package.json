@@ -26,7 +26,7 @@
   "dependencies": {
     "event-emitter": "github:e53e04ac/event-emitter",
     "hold": "github:e53e04ac/hold",
-    "playwright": "^1.30.0"
+    "playwright": "^1.34.3"
   },
   "devDependencies": {
     "@types/node": "^18.11.19",
